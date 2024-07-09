@@ -38,3 +38,4 @@
 2026-05-25T18:52:32  feat: PROMETHEUS unbound
 2024-06-10T17:33:03  build(deps): add a fast path for the common case
 2024-07-03T12:50:10  docs(rules): handle CRLF line endings
+2024-07-09T19:07:17  perf(report): make timestamps timezone-aware

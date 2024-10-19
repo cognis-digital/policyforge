@@ -43,3 +43,4 @@
 2024-08-26T09:41:31  fix(cli): bump the dev toolchain
 2024-09-02T16:58:38  docs(engine): reduce false positives on edge cases
 2024-09-26T11:15:45  docs: clarify usage notes
+2024-10-19T18:32:52  test(docs): document the config keys

@@ -48,3 +48,4 @@
 2024-11-19T08:06:06  docs(output): tune severity weights
 2024-12-14T15:23:13  refactor(ci): memoize repeated lookups
 2025-01-06T10:40:20  test(scan): bump the dev toolchain
+2025-01-12T17:57:27  fix(io): add usage examples to help

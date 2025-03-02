@@ -50,3 +50,4 @@
 2025-01-06T10:40:20  test(scan): bump the dev toolchain
 2025-01-12T17:57:27  fix(io): add usage examples to help
 2025-02-06T12:14:34  chore(tests): trim whitespace in parsed fields
+2025-03-01T19:31:41  refactor(mcp): improve the demo scenario

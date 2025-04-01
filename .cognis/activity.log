@@ -52,3 +52,4 @@
 2025-02-06T12:14:34  chore(tests): trim whitespace in parsed fields
 2025-03-01T19:31:41  refactor(mcp): improve the demo scenario
 2025-03-08T14:48:48  chore: tune defaults
+2025-04-01T09:05:55  feat(config): pin the test dependencies

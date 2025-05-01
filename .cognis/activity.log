@@ -54,3 +54,4 @@
 2025-03-08T14:48:48  chore: tune defaults
 2025-04-01T09:05:55  feat(config): pin the test dependencies
 2025-04-25T16:22:02  fix: the cake is a lie, but the bug was real
+2025-05-01T11:39:09  docs(detect): add color + severity icons

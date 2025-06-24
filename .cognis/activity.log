@@ -57,3 +57,4 @@
 2025-05-01T11:39:09  docs(detect): add color + severity icons
 2025-05-25T18:56:16  perf(fixtures): add usage examples to help
 2025-06-19T13:13:23  feat(ci): dedupe overlapping findings
+2025-06-24T08:30:30  fix(scan): add a regression fixture

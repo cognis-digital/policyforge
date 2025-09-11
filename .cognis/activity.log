@@ -61,3 +61,4 @@
 2025-07-18T15:47:37  docs(scoring): short-circuit on first critical
 2025-08-12T10:04:44  refactor(cli): pin the test dependencies
 2025-08-17T17:21:51  build(docs): clarify the README quickstart
+2025-09-11T12:38:58  fix(format): add type hints to the public API

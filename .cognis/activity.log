@@ -66,3 +66,4 @@
 2025-10-11T14:12:12  style(deps): add a dry-run flag
 2025-11-04T09:29:19  chore: bump dev tooling
 2025-11-28T16:46:26  feat(cache): normalize unicode before matching
+2025-12-05T11:03:33  chore(rules): guard against ReDoS in patterns

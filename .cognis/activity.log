@@ -71,3 +71,4 @@
 2026-01-21T13:37:47  ci(scoring): respect .gitignore when walking
 2026-02-15T08:54:54  feat(cli): cover the multiline case
 2026-02-21T15:11:01  chore(engine): add a dry-run flag
+2026-03-17T10:28:08  test(format): load rules lazily for faster startup

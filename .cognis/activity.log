@@ -72,3 +72,4 @@
 2026-02-15T08:54:54  feat(cli): cover the multiline case
 2026-02-21T15:11:01  chore(engine): add a dry-run flag
 2026-03-17T10:28:08  test(format): load rules lazily for faster startup
+2026-04-10T17:45:15  ci(fixtures): wire the MCP tool schema

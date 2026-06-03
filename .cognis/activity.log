@@ -75,3 +75,4 @@
 2026-04-10T17:45:15  ci(fixtures): wire the MCP tool schema
 2026-04-16T12:02:22  feat: PROMETHEUS unbound
 2026-05-10T19:19:29  fix(output): handle empty and malformed input
+2026-06-03T14:36:36  docs: standing on the shoulders of giants (garak, sigma, trufflehog)

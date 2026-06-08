@@ -1,0 +1,12 @@
+{
+  "company": "Acme Health, Inc.",
+  "frameworks": ["soc2", "hipaa"],
+  "employees": 18,
+  "cloud": "AWS",
+  "data_types": ["customer data", "protected health information"],
+  "handles_pii": true,
+  "handles_phi": true,
+  "security_owner": "VP of Engineering",
+  "access_review_days": 90,
+  "retention_days": 730
+}

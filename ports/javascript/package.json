@@ -1,0 +1,10 @@
+{
+  "name": "@cognis/policyforge",
+  "version": "0.2.0",
+  "description": "JavaScript port of policyforge (Cognis Neural Suite)",
+  "bin": {
+    "policyforge": "index.js"
+  },
+  "license": "LicenseRef-COCL-1.0",
+  "type": "module"
+}

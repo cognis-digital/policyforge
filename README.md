@@ -16,7 +16,7 @@
 </div>
 
 ```bash
-pip install cognis-policyforge
+pip install "git+https://github.com/cognis-digital/policyforge.git"
 policyforge scan .            # → prioritized findings in seconds
 ```
 
@@ -47,7 +47,7 @@ startups getting audit-ready
 ## Quick start
 
 ```bash
-pip install cognis-policyforge
+pip install "git+https://github.com/cognis-digital/policyforge.git"
 policyforge --version
 policyforge scan .                       # scan current project
 policyforge scan . --format json         # machine-readable

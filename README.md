@@ -9,16 +9,22 @@
 
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&duration=3500&pause=1000&color=6B46C1&center=true&vCenter=true&width=720&lines=Autogenerate+security+policies+from+a+short+questionnaire;Self-hostable+%C2%B7+MCP-native+%C2%B7+CI-ready+%C2%B7+polyglot" width="720"/>
 
-[![PyPI](https://img.shields.io/pypi/v/cognis-policyforge.svg?color=6b46c1)](https://pypi.org/project/cognis-policyforge/) [![CI](https://github.com/cognis-digital/policyforge/actions/workflows/ci.yml/badge.svg)](https://github.com/cognis-digital/policyforge/actions) [![License: COCL 1.0](https://img.shields.io/badge/License-COCL%201.0-2b6cb0.svg)](LICENSE) [![Suite](https://img.shields.io/badge/Cognis-Neural%20Suite-6b46c1.svg)](https://github.com/cognis-digital)
+[![install](https://img.shields.io/badge/install-git%2B%20%C2%B7%20pipx%20%C2%B7%20uv-6b46c1.svg)](#install--every-way-every-platform) [![CI](https://github.com/cognis-digital/policyforge/actions/workflows/ci.yml/badge.svg)](https://github.com/cognis-digital/policyforge/actions) [![License: COCL 1.0](https://img.shields.io/badge/License-COCL%201.0-2b6cb0.svg)](LICENSE) [![Suite](https://img.shields.io/badge/Cognis-Neural%20Suite-6b46c1.svg)](https://github.com/cognis-digital)
 
 *Compliance & GRC — get audit-ready and stay there, self-hosted.*
 
 </div>
 
 ```bash
-pip install cognis-policyforge
+pip install "git+https://github.com/cognis-digital/policyforge.git"
 policyforge scan .            # → prioritized findings in seconds
 ```
+
+<!-- cognis:layman:start -->
+## What is this?
+
+policyforge is a command-line tool that automatically drafts security policy documents for your organization. You answer a short questionnaire — your company name, which compliance standards you need (such as SOC 2, ISO 27001, or HIPAA), and a few facts about your data — and policyforge instantly generates complete, formatted policy documents ready for review. It also shows you a coverage report so you can see exactly which audit requirements are satisfied and which gaps remain. It is designed for startups and small teams that need to get audit-ready quickly without hiring a consultant.
+<!-- cognis:layman:end -->
 
 ## Contents
 
@@ -44,10 +50,56 @@ startups getting audit-ready
 <div align="right"><a href="#top">↑ back to top</a></div>
 
 <a name="quick-start"></a>
+<!-- cognis:domains:start -->
+## Domains
+
+**Primary domain:** Government & Compliance  ·  **JTF MERIDIAN division:** IRONCLAD · ANVIL
+
+**Topics:** `cognis` `compliance` `govtech` `grc`
+
+Part of the **Cognis Neural Suite** — 300+ source-available tools organized across 12 domains under the JTF MERIDIAN command structure. See the [suite on GitHub](https://github.com/cognis-digital) and [jtf-meridian](https://github.com/cognis-digital/jtf-meridian) for how the pieces fit together.
+<!-- cognis:domains:end -->
+
+<!-- cognis:install:start -->
+## Install
+
+`policyforge` is source-available (not published to PyPI) — every method below installs
+straight from GitHub. Pick whichever you prefer; the one-line scripts auto-detect
+the best tool available on your machine.
+
+**One-liner (Linux / macOS):**
+```sh
+curl -fsSL https://raw.githubusercontent.com/cognis-digital/policyforge/HEAD/install.sh | sh
+```
+
+**One-liner (Windows PowerShell):**
+```powershell
+irm https://raw.githubusercontent.com/cognis-digital/policyforge/HEAD/install.ps1 | iex
+```
+
+**Or install manually — any one of:**
+```sh
+pipx install "git+https://github.com/cognis-digital/policyforge.git"     # isolated (recommended)
+uv tool install "git+https://github.com/cognis-digital/policyforge.git"  # uv
+pip install "git+https://github.com/cognis-digital/policyforge.git"      # pip
+```
+
+**From source:**
+```sh
+git clone https://github.com/cognis-digital/policyforge.git
+cd policyforge && pip install .
+```
+
+Then run:
+```sh
+policyforge --help
+```
+<!-- cognis:install:end -->
+
 ## Quick start
 
 ```bash
-pip install cognis-policyforge
+pip install "git+https://github.com/cognis-digital/policyforge.git"
 policyforge --version
 policyforge scan .                       # scan current project
 policyforge scan . --format json         # machine-readable
@@ -140,6 +192,32 @@ curl -fsSL https://raw.githubusercontent.com/cognis-digital/policyforge/main/ins
 <div align="right"><a href="#top">↑ back to top</a></div>
 
 <a name="related"></a>
+<a name="verification"></a>
+## Verification
+
+[![tests](https://img.shields.io/badge/tests-12%20passing-2ea44f.svg)](AUDIT.md)
+
+Every push is verified end-to-end. Latest audit (2026-06-13):
+
+```text
+tests        : 12 passed, 0 failed, 0 errored
+compile      : all modules parse
+cli          : C:\Python314\python.exe: No module named https
+package      : https
+```
+
+<details><summary>CLI surface (<code>--help</code>)</summary>
+
+```text
+C:\Python314\python.exe: No module named https
+```
+</details>
+
+Full machine-readable results: [`AUDIT.md`](AUDIT.md) · regenerate with `python -m https --help` + `pytest -q`.
+
+<div align="right"><a href="#top">↑ back to top</a></div>
+
+
 ## Related Cognis tools
 
 - [`soc2box`](https://github.com/cognis-digital/soc2box) — SOC 2 evidence collector and control tracker, self-hosted

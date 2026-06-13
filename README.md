@@ -20,6 +20,12 @@ pip install "git+https://github.com/cognis-digital/policyforge.git"
 policyforge scan .            # → prioritized findings in seconds
 ```
 
+<!-- cognis:layman:start -->
+## What is this?
+
+policyforge is a command-line tool that automatically drafts security policy documents for your organization. You answer a short questionnaire — your company name, which compliance standards you need (such as SOC 2, ISO 27001, or HIPAA), and a few facts about your data — and policyforge instantly generates complete, formatted policy documents ready for review. It also shows you a coverage report so you can see exactly which audit requirements are satisfied and which gaps remain. It is designed for startups and small teams that need to get audit-ready quickly without hiring a consultant.
+<!-- cognis:layman:end -->
+
 ## Contents
 
 - [Why policyforge?](#why) · [Features](#features) · [Quick start](#quick-start) · [Example](#example) · [Architecture](#architecture) · [AI stack](#ai-stack) · [How it compares](#how-it-compares) · [Integrations](#integrations) · [Install anywhere](#install-anywhere) · [Related](#related) · [Contributing](#contributing)
@@ -44,6 +50,42 @@ startups getting audit-ready
 <div align="right"><a href="#top">↑ back to top</a></div>
 
 <a name="quick-start"></a>
+<!-- cognis:install:start -->
+## Install
+
+`policyforge` is source-available (not published to PyPI) — every method below installs
+straight from GitHub. Pick whichever you prefer; the one-line scripts auto-detect
+the best tool available on your machine.
+
+**One-liner (Linux / macOS):**
+```sh
+curl -fsSL https://raw.githubusercontent.com/cognis-digital/policyforge/HEAD/install.sh | sh
+```
+
+**One-liner (Windows PowerShell):**
+```powershell
+irm https://raw.githubusercontent.com/cognis-digital/policyforge/HEAD/install.ps1 | iex
+```
+
+**Or install manually — any one of:**
+```sh
+pipx install "git+https://github.com/cognis-digital/policyforge.git"     # isolated (recommended)
+uv tool install "git+https://github.com/cognis-digital/policyforge.git"  # uv
+pip install "git+https://github.com/cognis-digital/policyforge.git"      # pip
+```
+
+**From source:**
+```sh
+git clone https://github.com/cognis-digital/policyforge.git
+cd policyforge && pip install .
+```
+
+Then run:
+```sh
+policyforge --help
+```
+<!-- cognis:install:end -->
+
 ## Quick start
 
 ```bash

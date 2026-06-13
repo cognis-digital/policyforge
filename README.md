@@ -20,6 +20,41 @@ pip install cognis-policyforge
 policyforge scan .            # → prioritized findings in seconds
 ```
 
+## Usage — step by step
+
+1. Install the CLI (Python 3.9+):
+
+   ```bash
+   pip install git+https://github.com/cognis-digital/policyforge.git
+   ```
+
+2. List the supported frameworks/controls so you can scope the questionnaire:
+
+   ```bash
+   policyforge frameworks
+   ```
+
+3. Generate audit-ready policy documents from a questionnaire JSON file:
+
+   ```bash
+   policyforge generate questionnaire.json
+   ```
+
+4. Review the control coverage map (use JSON for tooling):
+
+   ```bash
+   policyforge --format json coverage questionnaire.json > coverage.json
+   ```
+
+5. Regenerate policies on every change in CI:
+
+   ```yaml
+   - name: regenerate security policies
+     run: |
+       pip install git+https://github.com/cognis-digital/policyforge.git
+       policyforge generate questionnaire.json
+   ```
+
 ## Contents
 
 - [Why policyforge?](#why) · [Features](#features) · [Quick start](#quick-start) · [Example](#example) · [Architecture](#architecture) · [AI stack](#ai-stack) · [How it compares](#how-it-compares) · [Integrations](#integrations) · [Install anywhere](#install-anywhere) · [Related](#related) · [Contributing](#contributing)

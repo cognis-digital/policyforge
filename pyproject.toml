@@ -34,3 +34,6 @@ policyforge = "policyforge.cli:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["policyforge"]
+
+[tool.hatch.metadata]
+allow-direct-references = true

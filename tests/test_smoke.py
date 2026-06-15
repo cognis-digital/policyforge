@@ -109,5 +109,77 @@ class TestCLI(unittest.TestCase):
             os.unlink(bad.name)
 
 
+class TestHardening(unittest.TestCase):
+    """Edge-case and error-path tests added during production hardening."""
+
+    # -- Questionnaire validation -----------------------------------------
+
+    def test_frameworks_must_be_list(self):
+        with self.assertRaises(ValueError):
+            Questionnaire(company="X", frameworks="soc2")
+
+    def test_frameworks_cannot_be_empty_list(self):
+        with self.assertRaises(ValueError):
+            Questionnaire(company="X", frameworks=[])
+
+    def test_data_types_must_be_list(self):
+        with self.assertRaises(ValueError):
+            Questionnaire(company="X", data_types="pii")
+
+    def test_negative_access_review_days_rejected(self):
+        with self.assertRaises(ValueError):
+            Questionnaire(company="X", access_review_days=-1)
+
+    def test_zero_access_review_days_rejected(self):
+        with self.assertRaises(ValueError):
+            Questionnaire(company="X", access_review_days=0)
+
+    def test_negative_retention_days_rejected(self):
+        with self.assertRaises(ValueError):
+            Questionnaire(company="X", retention_days=-90)
+
+    def test_non_integer_employees_rejected(self):
+        with self.assertRaises(ValueError):
+            Questionnaire(company="X", employees="lots")
+
+    # -- CLI error paths --------------------------------------------------
+
+    def test_cli_missing_file_exits_2(self):
+        rc = main(["generate", "no_such_file_zzz.json"])
+        self.assertEqual(rc, 2)
+
+    def test_cli_bad_json_exits_nonzero(self):
+        bad = tempfile.NamedTemporaryFile(
+            mode="w", suffix=".json", delete=False, encoding="utf-8"
+        )
+        bad.write("{bad json!!!")
+        bad.close()
+        try:
+            rc = main(["generate", bad.name])
+            self.assertNotEqual(rc, 0)
+        finally:
+            os.unlink(bad.name)
+
+    def test_cli_invalid_questionnaire_field_exits_nonzero(self):
+        """data_types as a bare string should produce a clean error, not a traceback."""
+        bad = tempfile.NamedTemporaryFile(
+            mode="w", suffix=".json", delete=False, encoding="utf-8"
+        )
+        json.dump({"company": "X", "data_types": "pii"}, bad)
+        bad.close()
+        try:
+            rc = main(["generate", bad.name])
+            self.assertNotEqual(rc, 0)
+        finally:
+            os.unlink(bad.name)
+
+    # -- mcp_server module compiles without error -------------------------
+
+    def test_mcp_server_importable(self):
+        import importlib
+        mod = importlib.import_module("policyforge.mcp_server")
+        self.assertTrue(callable(getattr(mod, "serve", None)))
+
+
 if __name__ == "__main__":
     unittest.main()

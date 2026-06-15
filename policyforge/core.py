@@ -192,6 +192,11 @@ class Questionnaire:
     def __post_init__(self) -> None:
         if not self.company or not str(self.company).strip():
             raise ValueError("company is required")
+        # frameworks must be a list of strings
+        if not isinstance(self.frameworks, list):
+            raise ValueError("frameworks must be a list of framework names")
+        if not self.frameworks:
+            raise ValueError("at least one framework is required")
         self.frameworks = [f.lower().strip() for f in self.frameworks]
         unknown = [f for f in self.frameworks if f not in FRAMEWORKS]
         if unknown:
@@ -199,10 +204,29 @@ class Questionnaire:
                 "unknown framework(s): %s; valid: %s"
                 % (", ".join(unknown), ", ".join(sorted(FRAMEWORKS)))
             )
-        if not self.frameworks:
-            raise ValueError("at least one framework is required")
-        if int(self.employees) < 0:
+        # data_types must be a list (a bare string would iterate char by char)
+        if not isinstance(self.data_types, list):
+            raise ValueError("data_types must be a list of strings")
+        # employees: must be a non-negative integer
+        try:
+            self.employees = int(self.employees)
+        except (TypeError, ValueError):
+            raise ValueError("employees must be an integer, got %r" % (self.employees,))
+        if self.employees < 0:
             raise ValueError("employees must be >= 0")
+        # access_review_days and retention_days must be positive integers
+        try:
+            self.access_review_days = int(self.access_review_days)
+        except (TypeError, ValueError):
+            raise ValueError("access_review_days must be an integer, got %r" % (self.access_review_days,))
+        if self.access_review_days <= 0:
+            raise ValueError("access_review_days must be > 0")
+        try:
+            self.retention_days = int(self.retention_days)
+        except (TypeError, ValueError):
+            raise ValueError("retention_days must be an integer, got %r" % (self.retention_days,))
+        if self.retention_days <= 0:
+            raise ValueError("retention_days must be > 0")
 
     @classmethod
     def from_dict(cls, d: Dict) -> "Questionnaire":

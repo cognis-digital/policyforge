@@ -119,11 +119,19 @@ def main(argv: Optional[List[str]] = None) -> int:
     try:
         return args.func(args)
     except FileNotFoundError as e:
-        sys.stderr.write("error: file not found: %s\n" % e.filename)
+        path = e.filename or str(e)
+        sys.stderr.write("error: file not found: %s\n" % path)
+        return 2
+    except PermissionError as e:
+        path = e.filename or str(e)
+        sys.stderr.write("error: permission denied: %s\n" % path)
         return 2
     except (ValueError, json.JSONDecodeError) as e:
         sys.stderr.write("error: %s\n" % e)
         return 1
+    except KeyboardInterrupt:
+        sys.stderr.write("\ninterrupted\n")
+        return 130
 
 
 if __name__ == "__main__":

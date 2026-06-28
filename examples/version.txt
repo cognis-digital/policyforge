@@ -1,0 +1,3 @@
+$ policyforge-emit --version
+
+policyforge 0.1.0

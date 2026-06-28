@@ -1,0 +1,18 @@
+$ policyforge-emit --help
+
+usage: policyforge [-h] [--version] [--format {table,json}]
+                   {generate,coverage,frameworks} ...
+
+Auto-generate audit-ready security policies from a questionnaire.
+
+positional arguments:
+  {generate,coverage,frameworks}
+    generate            generate policy documents
+    coverage            show control coverage map
+    frameworks          list supported frameworks/controls
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+  --format {table,json}
+                        output format (default: table)
